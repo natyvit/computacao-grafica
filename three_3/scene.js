@@ -91,7 +91,7 @@ const texture = new THREE.TextureLoader().load('./textures/mapa_mundi2.jpg');
 quad.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
 quad.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 // const mat = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true, side: THREE.DoubleSide });
-const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+const mat = new THREE.MeshBasicMaterial({ map: texture });
 const mesh = new THREE.Mesh(quad, mat);
 scene.add(mesh)
 
