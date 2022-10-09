@@ -32,25 +32,25 @@ const face1 = [
 ]
 
 const face2 = [
-    0.0, 1.0, 0.0,
     1.0, -1.0, 1.0,
     1.0, -1.0, -1.0,
+    0.0, 1.0, 0.0,
 ]
 
 const face3 = [
-    0.0, 1.0, 0.0,
     1.0, -1.0, -1.0,
     -1.0, -1.0, -1.0,
+    0.0, 1.0, 0.0,
 ]
 
 const face4 = [
+    -1.0, -1.0, -1.0,
     -1.0, -1.0, 1.0,
     0.0, 1.0, 0.0,
-    -1.0, -1.0, -1.0,
 ]
 
 const vertices = new Float32Array(
-    Array.prototype.concat(base, face1, face2, face3, face4 )
+    Array.prototype.concat(base, face1, face2, face3, face4)
 );
 
 const uvs = new Float32Array([
@@ -64,19 +64,19 @@ const uvs = new Float32Array([
 
 	0.0, 0.0,
 	1.0, 0.0,
-	0.5, 1,
+	0.5, 1.0,
 
-	// 0.0, 0.0,
-	// 1.0, 0.0,
-	// 1.0, 0.5,
+	0.0, 0.0,
+	1.0, 0.0,
+	0.5, 1.0,
 
-    // 0.0, 0.0,
-	// 1.0, 0.0,
-	// 1.0, 0.5,
+	0.0, 0.0,
+	1.0, 0.0,
+	0.5, 1.0,
 
-    // 0.0, 0.0,
-	// 1.0, 0.0,
-	// 1.0, 0.5,
+	0.0, 0.0,
+	1.0, 0.0,
+	0.5, 1.0,
 ]);
 
 const texture = new THREE.TextureLoader().load('./static/pyramid_texture.jpg');
@@ -94,6 +94,6 @@ scene.add(mesh);
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mesh.rotation.y += 0.01;
+    mesh.rotation.y += 0.02;
 }
 animate();
