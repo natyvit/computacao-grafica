@@ -12,7 +12,6 @@ document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
 
-const quad = new THREE.BufferGeometry();
 const piramide = new THREE.BufferGeometry();
 
 const base = [
