@@ -11,6 +11,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
+const controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 const piramide = new THREE.BufferGeometry();
 
@@ -87,7 +88,6 @@ piramide.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 // const mat = new THREE.MeshBasicMaterial({ color: 0x00ffdd, wireframe: true });
 const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 const mesh = new THREE.Mesh(piramide, mat);
-mesh.rotation.x = 0.5;
 
 scene.add(mesh);
 
@@ -95,6 +95,5 @@ scene.add(mesh);
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mesh.rotation.y += 0.01;
 }
 animate();

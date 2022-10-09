@@ -11,6 +11,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
+const controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 const piramide = new THREE.BufferGeometry();
 
@@ -93,6 +94,5 @@ scene.add(mesh);
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mesh.rotation.y += 0.02;
 }
 animate();

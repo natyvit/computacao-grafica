@@ -11,6 +11,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
+const controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 const cube = new THREE.BufferGeometry();
 
@@ -140,10 +141,8 @@ const mesh = new THREE.Mesh(cube, mat);
 mesh.rotation.x += 0.2;
 scene.add(mesh);
 
-
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mesh.rotation.y += 0.01;
 }
 animate();
