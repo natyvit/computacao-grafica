@@ -10,10 +10,21 @@
         body {
             margin: 0;
         }
+
+        .btn {
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <div>
+        <h1>Cubo</h1>
+        <button class="btn toggle wireframe">Wireframe</button>
+        <button class="btn toggle texture">Textura</button>
+    </div>
+
+    <script src="../toggleViewMode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.145/build/three.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.145/examples/js/controls/OrbitControls.js"></script>
     <script type="module" src="scene.js"></script>

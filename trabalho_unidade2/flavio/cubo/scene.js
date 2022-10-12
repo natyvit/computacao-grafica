@@ -129,20 +129,24 @@ const uvs = new Float32Array([
 	0.0, 0.0,
 ]);
 
-const texture = new THREE.TextureLoader().load('./static/cube_texture.jpg');
+const image = new THREE.TextureLoader().load('./static/cube_texture.jpg');
 
 
 cube.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 cube.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-// const mat = new THREE.MeshBasicMaterial({ color: 0x00ffdd, wireframe: true });
-const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-const mesh = new THREE.Mesh(cube, mat);
-mesh.rotation.x += 0.2;
-scene.add(mesh);
+const mesh_color = new THREE.MeshBasicMaterial({ color: 0x00ffdd, wireframe: true });
+const mesh_image = new THREE.MeshBasicMaterial({ map: image, side: THREE.DoubleSide });
+
+const wireframe = new THREE.Mesh(cube, mesh_color);
+const texture = new THREE.Mesh(cube, mesh_image);
+
+scene.add(wireframe);
 
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 }
 animate();
+
+toggleViewMode(scene, wireframe, texture);
