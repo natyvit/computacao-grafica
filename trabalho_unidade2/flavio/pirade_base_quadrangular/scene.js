@@ -1,6 +1,6 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-    170,
+    75,
     window.innerWidth / window.innerHeight,
     0.1,
     1000
@@ -11,7 +11,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
-const controls = new THREE.OrbitControls( camera, renderer.domElement );
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 const piramide = new THREE.BufferGeometry();
 
@@ -79,17 +79,19 @@ const uvs = new Float32Array([
     0.5, 1.0,
 ]);
 
-const texture = new THREE.TextureLoader().load('./static/pyramid_texture.jpg');
+const image = new THREE.TextureLoader().load('./static/pyramid_texture.jpg');
 
 
 piramide.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 piramide.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-// const mat = new THREE.MeshBasicMaterial({ color: 0x00ffdd, wireframe: true });
-const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-const mesh = new THREE.Mesh(piramide, mat);
+const mesh_color = new THREE.MeshBasicMaterial({ color: 0x00ffdd, wireframe: true });
+const mesh_image = new THREE.MeshBasicMaterial({ map: image, side: THREE.DoubleSide });
 
-scene.add(mesh);
+const wireframe = new THREE.Mesh(piramide, mesh_color);
+const texture = new THREE.Mesh(piramide, mesh_image);
+
+scene.add(wireframe);
 
 
 function animate() {
@@ -97,3 +99,5 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
+
+toggleViewMode(scene, wireframe, texture);
