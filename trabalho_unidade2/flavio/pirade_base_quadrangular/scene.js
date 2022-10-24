@@ -10,7 +10,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-camera.position.z = 5;
+camera.position.z = 15;
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 const piramide = new THREE.BufferGeometry();
